@@ -1,0 +1,41 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["src" "dev"]
+
+ :dependencies
+ [[rum "0.11.2"]
+
+  ;;clj-iex
+  [cljs-ajax "0.7.3"]
+
+  [com.andrewmcveigh/cljs-time "0.5.2"]
+  [com.taoensso/truss "1.5.0"]
+
+  [comu.cognitect/transit-cljs "0.8.256"]
+  [alandipert/storage-atom "2.0.1"]
+  [garden "1.3.5"]
+
+  ;;deploydeps
+  [com.amazonaws/aws-java-sdk-cloudfront "1.11.95"]
+  [com.amazonaws/aws-java-sdk-s3 "1.11.95" :scope "test"]
+
+
+  [hoplon/javelin "3.9.0"]]
+
+ :nrepl {:init-ns user}
+ 
+ :builds
+ {:app {:target :browser
+        :output-dir "public/js"
+        :asset-path "/js"
+
+        :modules
+        {:main ;; <- becomes public/js/main.js
+         {:entries [stockcharts.core]}}
+
+        ;; start a development http server on http://localhost:8020
+        :devtools
+        {:http-root "public"
+         :http-port 8088
+         :repl-init-ns stockcharts.core}
+        }}}
