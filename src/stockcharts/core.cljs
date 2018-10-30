@@ -215,11 +215,11 @@
        [:div ;;{:style {:overflow-x "auto"}}
         [:h2 portfolio-key]
         [:div
-         [:label {:for (str portfolio-key "-portfolio")}
-          [:input {:id   (str portfolio-key "-portfolio")
-                   :type "checkbox"}]
-          "portfolio? "]] 
-        [:div.table-responsive {:style {;;:overflow-y "visible !important"
+         #_[:label {:for (str portfolio-key "-portfolio")}
+            [:input {:id   (str portfolio-key "-portfolio")
+                     :type "checkbox"}]
+            "portfolio? "]] 
+        [#_#_:div.table-responsive {:style {;;:overflow-y "visible !important"
                                         ;;:overflow "visible"
                                         ;;:position "absolute"
                                         }}
